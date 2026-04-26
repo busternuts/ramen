@@ -18,10 +18,20 @@ body {
   background: radial-gradient(ellipse at top, #2a2a4a 0%, #1a1a2e 60%);
 }
 
+a {
+  color: #ffd166;
+}
+
 #root {
   width: 100%;
-  max-width: 960px;
-  padding: 2rem;
+  max-width: 1040px;
+  padding: 1.5rem 2rem;
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem;
+  }
 }
 
 code {

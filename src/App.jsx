@@ -1,43 +1,26 @@
-import { useState } from 'react'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
+import Layout from './components/Layout.jsx'
+import Home from './pages/Home.jsx'
+import BestInstantRamen from './pages/BestInstantRamen.jsx'
+import RamenStyles from './pages/RamenStyles.jsx'
+import Gear from './pages/Gear.jsx'
+import QuickShoyu from './pages/QuickShoyu.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="app">
-      <header className="hero">
-        <h1>🍜 Ramen</h1>
-        <p className="tagline">A generic React site, deployed on GitHub Pages.</p>
-      </header>
-
-      <section className="card">
-        <button onClick={() => setCount((c) => c + 1)}>
-          You've clicked {count} {count === 1 ? 'time' : 'times'}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to update.
-        </p>
-      </section>
-
-      <section className="features">
-        <div className="feature">
-          <h3>⚛️ React 18</h3>
-          <p>Built with React and the modern Vite toolchain.</p>
-        </div>
-        <div className="feature">
-          <h3>🚀 Auto Deploy</h3>
-          <p>GitHub Actions ships every push to <code>main</code>.</p>
-        </div>
-        <div className="feature">
-          <h3>🎨 Themed</h3>
-          <p>Dark mode by default, fully responsive layout.</p>
-        </div>
-      </section>
-
-      <footer>
-        <p>Made with React + Vite</p>
-      </footer>
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="best-instant-ramen" element={<BestInstantRamen />} />
+          <Route path="ramen-styles" element={<RamenStyles />} />
+          <Route path="gear" element={<Gear />} />
+          <Route path="recipes/quick-shoyu" element={<QuickShoyu />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </HashRouter>
   )
 }
