@@ -88,7 +88,7 @@ export default function SoftBoiledEgg() {
           skimmer for both ramen broth and these eggs:
         </p>
         <p>
-          <AmazonLink asin="B077WSL3M3" className="cta">
+          <AmazonLink query="fine mesh skimmer ladle" className="cta">
             Fine-mesh skimmer on Amazon →
           </AmazonLink>
         </p>

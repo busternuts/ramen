@@ -6,23 +6,23 @@ const books = [
   {
     title: 'Ivan Ramen',
     author: 'Ivan Orkin',
-    asin: '1607744465',
+    query: 'Ivan Ramen Ivan Orkin cookbook',
     blurb:
       'Part memoir, part recipe book — the story of an American who opened a beloved ramen shop in Tokyo. Recipes are detailed and the writing is excellent. The single best book to read if you want to understand why ramen people are obsessed.',
     bestFor: 'Story-driven readers; people building toward shop-style ramen',
   },
   {
-    title: 'Let’s Make Ramen!',
+    title: "Let's Make Ramen!",
     author: 'Hugh Amano & Sarah Becan',
-    asin: '0399581995',
+    query: "Let's Make Ramen graphic novel cookbook",
     blurb:
-      'A graphic-novel-style cookbook. Genuinely the most accessible ramen book in print — every technique is illustrated, and the recipes scale down for home cooks. Buy this one first if you’re new.',
+      'A graphic-novel-style cookbook. Genuinely the most accessible ramen book in print — every technique is illustrated, and the recipes scale down for home cooks. Buy this one first if you\'re new.',
     bestFor: 'Beginners; visual learners; gifts',
   },
   {
     title: 'Ramen Otaku',
     author: 'Sarah Gavigan',
-    asin: '0735213895',
+    query: 'Ramen Otaku Sarah Gavigan cookbook',
     blurb:
       'A deeper, more technical book from the chef behind Otaku Ramen in Nashville. Strong chapters on tares, broths, and noodle-pairing logic. Recipes assume you have time and patience.',
     bestFor: 'Intermediate cooks ready for a long broth project',
@@ -30,7 +30,7 @@ const books = [
   {
     title: 'The Ramen-ya',
     author: 'Mr. Taka',
-    asin: '1648961843',
+    query: 'The Ramen-ya Mr Taka cookbook',
     blurb:
       'Recipes from the New York shop. Dense with technique notes and shop-style assembly tips. The aroma-oil section alone is worth the price.',
     bestFor: 'Cooks chasing shop-quality finish at home',
@@ -68,7 +68,7 @@ export default function BestRamenCookbooks() {
 
         <ol className="ranked-list">
           {books.map((b) => (
-            <li key={b.asin}>
+            <li key={b.title}>
               <h2>
                 {b.title}{' '}
                 <span className="muted" style={{ fontWeight: 400 }}>
@@ -79,8 +79,8 @@ export default function BestRamenCookbooks() {
               <p>
                 <strong>Best for:</strong> {b.bestFor}
               </p>
-              <AmazonLink asin={b.asin} className="cta">
-                Check price on Amazon →
+              <AmazonLink query={b.query} className="cta">
+                Find on Amazon →
               </AmazonLink>
             </li>
           ))}

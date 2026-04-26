@@ -5,37 +5,37 @@ import AffiliateDisclosure from '../components/AffiliateDisclosure.jsx'
 const gear = [
   {
     name: 'Wide ramen bowls (set of 4)',
-    asin: 'B07PNH3D3R',
+    query: 'wide ramen bowls set of 4',
     why: 'A proper ramen bowl is wide and shallow, not deep like a soup bowl. The wide surface keeps your noodles spread out so they don\'t turn to mush, and gives you room to plate toppings.',
     category: 'Bowls',
   },
   {
-    name: 'Slotted bamboo ramen spoon',
-    asin: 'B07W4TZNDS',
+    name: 'Slotted ramen spoon',
+    query: 'slotted ramen spoon',
     why: 'A standard soup spoon is wrong. You want one with a deep bowl and a flat tip you can press flush against the side of your dish — and slots help when fishing toppings out of broth.',
     category: 'Utensils',
   },
   {
     name: 'Heavy stock pot (8 qt)',
-    asin: 'B00PUZE7H2',
+    query: '8 quart stock pot heavy',
     why: 'Long broth simmers need thick walls and a tight lid so you don\'t cook off all your liquid in 4 hours. An 8-quart is the sweet spot for home cooks.',
     category: 'Cookware',
   },
   {
     name: 'Fine-mesh skimmer',
-    asin: 'B077WSL3M3',
+    query: 'fine mesh skimmer ladle',
     why: 'For pulling scum off the top of a long simmer. Cheap, essential, and the difference between a clean bowl and a muddy one.',
     category: 'Cookware',
   },
   {
     name: 'Kombu (dried kelp)',
-    asin: 'B003KNDPWK',
+    query: 'kombu dried kelp dashi',
     why: 'The umami backbone of dashi. A small bag lasts months and dramatically lifts any broth you make.',
     category: 'Pantry',
   },
   {
     name: 'Bonito flakes (katsuobushi)',
-    asin: 'B07X6DCRBR',
+    query: 'bonito flakes katsuobushi',
     why: 'The other half of dashi. Pair with kombu for a base broth that adds depth to anything from shoyu ramen to tsukemen dipping sauce.',
     category: 'Pantry',
   },
@@ -77,11 +77,11 @@ export default function Gear() {
             <h2>{cat}</h2>
             <div className="gear-grid">
               {gear.filter((g) => g.category === cat).map((g) => (
-                <div key={g.asin} className="gear-card">
+                <div key={g.name} className="gear-card">
                   <h3>{g.name}</h3>
                   <p>{g.why}</p>
-                  <AmazonLink asin={g.asin} className="cta">
-                    Check on Amazon →
+                  <AmazonLink query={g.query} className="cta">
+                    Find on Amazon →
                   </AmazonLink>
                 </div>
               ))}
