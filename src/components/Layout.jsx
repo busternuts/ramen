@@ -4,15 +4,25 @@ import HeadIntegrations from './HeadIntegrations.jsx'
 import Newsletter from './Newsletter.jsx'
 import TipJar from './TipJar.jsx'
 
+const NOREN_CHARS = ['ラ', 'ー', 'メ', 'ン', '屋']
+
 export default function Layout() {
   return (
     <div className="site">
       <HeadIntegrations />
+
+      <div className="noren-bar" />
+      <div className="noren" aria-hidden="true">
+        {NOREN_CHARS.map((c, i) => (
+          <span key={i}>{c}</span>
+        ))}
+      </div>
+
       <header className="site-header">
         <Link to="/" className="brand">
-          <span className="brand-mark">🍜</span>
           <span className="brand-text">{SITE_NAME}</span>
         </Link>
+        <p className="tagline">{SITE_TAGLINE}</p>
         <nav className="site-nav">
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/best-instant-ramen">Best Instant</NavLink>
