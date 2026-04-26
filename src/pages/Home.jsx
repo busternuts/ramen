@@ -56,8 +56,10 @@ export default function Home() {
       <section className="grid">
         {features.map((f) => (
           <Link key={f.to} to={f.to} className="card-link">
-            <h2>{f.title}</h2>
-            <p>{f.blurb}</p>
+            <div className="card-body">
+              <h2>{f.title}</h2>
+              <p>{f.blurb}</p>
+            </div>
             <span className="card-arrow">Read →</span>
           </Link>
         ))}
