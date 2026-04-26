@@ -9,21 +9,33 @@
 }
 
 /* --- Noren curtain (hangs from a wood bar at the top of every page) --- */
+.noren-bar,
+.noren {
+  /* Extend to the edges of #root; each breakpoint has a different padding. */
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
 .noren-bar {
   height: 12px;
   background: var(--ink);
-  margin: 0 -1.5rem;
 }
 
 .noren {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 6px;
-  margin: 0 -1.5rem 0;
-  padding: 0 0;
   background: var(--ink);
   height: 96px;
   align-items: stretch;
+}
+
+@media (max-width: 600px) {
+  .noren-bar,
+  .noren {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
 }
 
 .noren span {
