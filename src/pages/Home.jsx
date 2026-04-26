@@ -6,7 +6,17 @@ const features = [
   {
     to: '/best-instant-ramen',
     title: 'Best Instant Ramen, Ranked',
-    blurb: 'A blind taste test of 12 instant noodles, from supermarket to import-store finds.',
+    blurb: 'A blind taste test of 5 instant noodles, from supermarket to import-store finds.',
+  },
+  {
+    to: '/best-ramen-cookbooks',
+    title: 'The 4 Best Ramen Cookbooks',
+    blurb: 'From beginner-friendly graphic novels to deep technical references — what to read first.',
+  },
+  {
+    to: '/which-ramen-to-order',
+    title: 'Which Ramen Should You Order?',
+    blurb: 'A simple decision guide based on the food you already love. No more menu paralysis.',
   },
   {
     to: '/ramen-styles',
@@ -22,6 +32,11 @@ const features = [
     to: '/recipes/quick-shoyu',
     title: 'Quick Shoyu Ramen (30 min)',
     blurb: 'A weeknight bowl that punches well above its prep time.',
+  },
+  {
+    to: '/recipes/soft-boiled-ramen-egg',
+    title: 'How to Make a Soft-Boiled Ramen Egg',
+    blurb: 'The 6:30 rule for jammy ajitsuke tamago — the most iconic ramen topping.',
   },
 ]
 
