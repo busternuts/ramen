@@ -2,9 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-// GitHub Pages serves project repos at https://<user>.github.io/<repo>/.
-// All asset paths and manifest start_url/scope must be prefixed with this.
-const BASE = '/snapps/';
+// Affiliate site lives at https://busternuts.github.io/ramen/.
+// PWA hub lives at https://busternuts.github.io/ramen/apps/.
+const BASE = '/ramen/apps/';
 
 export default defineConfig({
   base: BASE,

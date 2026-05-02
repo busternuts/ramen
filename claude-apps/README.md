@@ -46,28 +46,15 @@ npm run preview  # serves the production build, accessible on LAN
 
 ## Hosting
 
-Hosted on **GitHub Pages** at `https://busternuts.github.io/snapps/`. The workflow in
-`.github/workflows/deploy.yml` runs on push to `main`, builds with `npm run build`,
-and publishes `dist/` via `actions/deploy-pages`.
+Lives at **`https://busternuts.github.io/ramen/apps/`**, deployed by the
+workflow at `<repo-root>/.github/workflows/deploy.yml`. That same workflow
+also builds the affiliate site at the repo root and publishes it to
+`https://busternuts.github.io/ramen/`. Both share one GitHub Pages deploy.
 
-Because GitHub Pages serves project repos under `/<repo-name>/`, `vite.config.js`
-sets `base: '/snapps/'` and the React Router `BrowserRouter` uses
-`basename={import.meta.env.BASE_URL}`. The workflow also copies `index.html` to
-`404.html` so deep-link refreshes (e.g. `/snapps/apps/mood`) hit the SPA shell
-instead of GitHub's 404 page.
-
-### Source layout note
-
-The canonical source lives in `busternuts/ramen` under `claude-apps/` (Claude
-develops there). Updates flow to `busternuts/snapps` via:
-
-```bash
-# Run from a local clone of busternuts/ramen
-git subtree split --prefix=claude-apps -b snapps-export
-git push --force https://github.com/busternuts/snapps.git snapps-export:main
-```
-
-The push triggers the GitHub Actions workflow, which deploys to Pages.
+Because the PWA is served under `/ramen/apps/`, `vite.config.js` sets
+`base: '/ramen/apps/'`, the React Router `BrowserRouter` uses
+`basename={import.meta.env.BASE_URL}`, and the workflow copies the built
+`index.html` to `404.html` so deep-link refreshes hit the SPA shell.
 
 ## TODO
 
