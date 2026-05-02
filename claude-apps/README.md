@@ -1,4 +1,4 @@
-# Claude Apps
+# Snapps
 
 A PWA hub disguised as an App Store. One install on your phone, multiple mini-apps inside.
 
@@ -46,7 +46,28 @@ npm run preview  # serves the production build, accessible on LAN
 
 ## Hosting
 
-Default deploy target is **Cloudflare Pages** (free, supports private GitHub repos, global CDN). Cloudflare watches the repo and builds on push. No workflow file needed — Cloudflare detects Vite automatically.
+Hosted on **GitHub Pages** at `https://busternuts.github.io/snapps/`. The workflow in
+`.github/workflows/deploy.yml` runs on push to `main`, builds with `npm run build`,
+and publishes `dist/` via `actions/deploy-pages`.
+
+Because GitHub Pages serves project repos under `/<repo-name>/`, `vite.config.js`
+sets `base: '/snapps/'` and the React Router `BrowserRouter` uses
+`basename={import.meta.env.BASE_URL}`. The workflow also copies `index.html` to
+`404.html` so deep-link refreshes (e.g. `/snapps/apps/mood`) hit the SPA shell
+instead of GitHub's 404 page.
+
+### Source layout note
+
+The canonical source lives in `busternuts/ramen` under `claude-apps/` (Claude
+develops there). Updates flow to `busternuts/snapps` via:
+
+```bash
+# Run from a local clone of busternuts/ramen
+git subtree split --prefix=claude-apps -b snapps-export
+git push --force https://github.com/busternuts/snapps.git snapps-export:main
+```
+
+The push triggers the GitHub Actions workflow, which deploys to Pages.
 
 ## TODO
 
