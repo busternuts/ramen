@@ -1,12 +1,18 @@
 :root {
   color-scheme: dark;
-  --bg: #0a0a0a;
-  --fg: #f5f5f5;
-  --tile-bg: #1c1c1e;
-  --tile-bg-2: #2c2c2e;
+  --bg: #000000;
+  --bg-elev: #1c1c1e;
+  --bg-elev-2: #2c2c2e;
+  --fg: #ffffff;
+  --fg-secondary: rgba(235, 235, 245, 0.6);
+  --fg-tertiary: rgba(235, 235, 245, 0.3);
+  --separator: rgba(84, 84, 88, 0.65);
+  --separator-opaque: #38383a;
   --accent: #0a84ff;
   --muted: #8e8e93;
   --danger: #ff453a;
+  --tile-bg: var(--bg-elev);
+  --tile-bg-2: var(--bg-elev-2);
 }
 
 * {
@@ -21,7 +27,8 @@ body,
   height: 100%;
   background: var(--bg);
   color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    system-ui, sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
@@ -49,22 +56,24 @@ button {
 }
 
 .launcher {
-  padding: 24px 20px;
+  padding: 8px 20px 32px;
   max-width: 720px;
   margin: 0 auto;
 }
 
+/* Large Title: Apple's 34pt, -0.4 tracking, generous breathing room */
 .launcher-header h1 {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 16px 0 32px;
+  letter-spacing: -0.022em;
+  margin: 24px 0 28px;
+  line-height: 1.1;
 }
 
 .launcher-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px 12px;
+  gap: 28px 12px;
 }
 
 .app-tile {
@@ -73,28 +82,31 @@ button {
   align-items: center;
   gap: 8px;
   padding: 4px;
-  transition: transform 0.1s ease;
+  transition: transform 0.12s ease;
 }
 
 .app-tile:active {
   transform: scale(0.92);
 }
 
+/* iOS squircle proportion: ~22% of side. 64 * 0.22 ≈ 14 */
 .app-icon {
   width: 64px;
   height: 64px;
-  border-radius: 16px;
-  background: linear-gradient(160deg, var(--tile-bg-2), var(--tile-bg));
+  border-radius: 14px;
+  background: linear-gradient(180deg, #2c2c2e 0%, #1c1c1e 100%);
   display: grid;
   place-items: center;
   font-size: 36px;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 0 0 0.5px rgba(255, 255, 255, 0.04),
+    0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .app-title {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 400;
   text-align: center;
   color: var(--fg);
   line-height: 1.2;
