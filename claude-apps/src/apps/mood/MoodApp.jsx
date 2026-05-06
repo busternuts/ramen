@@ -27,7 +27,7 @@ function MoodHeader() {
           onClick={() => navigate('/')}
           aria-label="Back to apps"
         >
-          ‹ Apps
+          ‹ snApps
         </button>
         <h1>Mood</h1>
         <span className="header-spacer" aria-hidden />

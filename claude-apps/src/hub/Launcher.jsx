@@ -5,7 +5,7 @@ export default function Launcher() {
   return (
     <div className="launcher">
       <header className="launcher-header">
-        <h1>Apps</h1>
+        <h1>snApps</h1>
       </header>
       <div className="launcher-grid">
         {apps.map((app) => (
