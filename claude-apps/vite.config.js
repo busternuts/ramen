@@ -14,8 +14,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['apple-touch-icon.png', 'icons/*.png'],
       manifest: {
-        name: 'Snapps',
-        short_name: 'Snapps',
+        name: 'snApps',
+        short_name: 'snApps',
         description: 'A hub for mini-apps. One install, many apps inside.',
         theme_color: '#0a0a0a',
         background_color: '#0a0a0a',
