@@ -1,4 +1,4 @@
-# Claude Apps
+# Snapps
 
 A PWA hub disguised as an App Store. One install on your phone, multiple mini-apps inside.
 
@@ -46,7 +46,15 @@ npm run preview  # serves the production build, accessible on LAN
 
 ## Hosting
 
-Default deploy target is **Cloudflare Pages** (free, supports private GitHub repos, global CDN). Cloudflare watches the repo and builds on push. No workflow file needed — Cloudflare detects Vite automatically.
+Lives at **`https://busternuts.github.io/ramen/apps/`**, deployed by the
+workflow at `<repo-root>/.github/workflows/deploy.yml`. That same workflow
+also builds the affiliate site at the repo root and publishes it to
+`https://busternuts.github.io/ramen/`. Both share one GitHub Pages deploy.
+
+Because the PWA is served under `/ramen/apps/`, `vite.config.js` sets
+`base: '/ramen/apps/'`, the React Router `BrowserRouter` uses
+`basename={import.meta.env.BASE_URL}`, and the workflow copies the built
+`index.html` to `404.html` so deep-link refreshes hit the SPA shell.
 
 ## TODO
 

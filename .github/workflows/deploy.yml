@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [master, claude/create-new-repository-ZfiBS]
   workflow_dispatch:
 
 permissions:
@@ -23,8 +23,20 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      # Build the affiliate site at the repo root → dist/
       - run: npm ci
       - run: npm run build
+      # Build the PWA hub from claude-apps/ → claude-apps/dist
+      - name: Install PWA deps
+        working-directory: claude-apps
+        run: npm ci
+      - name: Build PWA
+        working-directory: claude-apps
+        run: npm run build
+      # Merge: PWA goes to /apps/ inside the affiliate's dist
+      - run: mv claude-apps/dist dist/apps
+      # SPA fallback for the PWA's deep links (e.g. /ramen/apps/apps/mood)
+      - run: cp dist/apps/index.html dist/apps/404.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
